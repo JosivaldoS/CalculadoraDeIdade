@@ -1,7 +1,6 @@
-const hoje = new Date()
-
 
 function Calcular(){
+    const hoje = new Date()
 
     let dia = parseInt(document.getElementById("dia").value)
     let mes = parseInt(document.getElementById("mes").value)
@@ -15,6 +14,18 @@ function Calcular(){
     let mesTotal = mesAtual - mes
     let anoTotal = anoAtual - ano
 
+    if (diaTotal < 0) {
+        mesTotal--;
+        diaTotal += new Date(anoAtual, mesAtual - 1, 0).getDate()
+    }
+
+    if (mesTotal < 0) {
+        console.log(`Mes total ${mesTotal}`)
+        anoAtual--;
+        mesTotal += new Date(anoAtual).getMonth()
+        console.log(`Mes total depois ${mesTotal}`)
+    }
+
     let diaLabel = document.getElementById("diaLabel")
     let mesLabel = document.getElementById("mesLabel")
     let anoLabel = document.getElementById("anoLabel")
@@ -22,12 +33,4 @@ function Calcular(){
     mesLabel.innerText = mesTotal
     anoLabel.innerHTML = anoTotal
 
-
-
-    // Mostra a data fornecida
-    console.log(`${dia}/${mes}/${ano}`)
-    // Mostra a data de hoje
-    console.log(`${diaAtual}/${mesAtual}/${anoAtual}`)
-    // Mostra o valor depois da subtração
-    console.log(`${diaTotal}/${mesTotal}/${anoTotal}`)
 }
