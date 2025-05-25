@@ -8,25 +8,30 @@
 </head>
 <body>
 
-    Dia
-    <input type="number" placeholder="Digite o Dia" id="dia">
+    <main>
 
-    Mês
-    <input type="number" placeholder="Digite o Mês" id="mes">
+        Dia
+        <input type="number" placeholder="Digite o Dia" id="dia" min="1" max="31">
+        <span id="erroDia" style="color: red;"></span>
 
-    Ano
-    <input type="number" placeholder="Digite o Ano" id="ano">
+        Mês
+        <input type="number" placeholder="Digite o Mês" id="mes" min="1" max="12">
+        <span id="erroMes" style="color: red;"></span>
 
-    <button onclick="Calcular()">Calcular</button>
+        Ano
+        <input type="number" placeholder="Digite o Ano" id="ano">
+        <span id="erroAno" style="color: red;"></span>
 
-    <label id="diaLabel">--</label> Dias
-    <label id="mesLabel">--</label> Meses
-    <label id="anoLabel">--</label> Anos
+        <button onclick="Calcular()">Calcular</button>
+
+        <div style="font-size: 150px;">
+            <label id="diaLabel">--</label> Dias
+            <label id="mesLabel">--</label> Meses
+            <label id="anoLabel">--</label> Anos
+        </div>
+       
+    </main>
     
     <script src="script.js"></script>
-
-    // 2025 - 2003 = 22
-    // 5 - 4 = 1
-    // 21 - 30 = -9
 </body>
 </html>

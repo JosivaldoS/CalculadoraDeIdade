@@ -6,6 +6,30 @@ function Calcular(){
     let mes = parseInt(document.getElementById("mes").value)
     let ano = parseInt(document.getElementById("ano").value)
 
+    let erroDia = document.getElementById("erroDia")
+    let erroMes = document.getElementById("erroMes")
+    let erroAno = document.getElementById("erroAno")
+
+    console.log(dia)
+
+    // Validação se os dados informados são números
+
+    if (isNaN(dia) || !Number.isInteger(dia)) {
+        erroDia.innerText = "O campo precisa ser preenchido"
+        return
+    } else if (isNaN(mes) || !Number.isInteger(mes)){
+        erroMes.innerText = "O campo precisa ser preenchido"
+        return
+    } else if (isNaN(ano) || !Number.isInteger(ano)){
+        erroAno.innerText = "O campo precisa ser preenchido"
+        return
+    }
+
+    // Esvazia os spans caso ele passe no teste de validação
+    erroDia.innerHTML = ""
+    erroMes.innerHTML = ""
+    erroAno.innerHTML = ""
+
     let diaAtual = hoje.getDate()
     let mesAtual = hoje.getMonth() + 1
     let anoAtual = hoje.getFullYear()
@@ -18,12 +42,11 @@ function Calcular(){
         mesTotal--;
         diaTotal += new Date(anoAtual, mesAtual - 1, 0).getDate()
     }
+    
 
     if (mesTotal < 0) {
-        console.log(`Mes total ${mesTotal}`)
-        anoAtual--;
+        anoTotal--;
         mesTotal += new Date(anoAtual).getMonth()
-        console.log(`Mes total depois ${mesTotal}`)
     }
 
     let diaLabel = document.getElementById("diaLabel")
