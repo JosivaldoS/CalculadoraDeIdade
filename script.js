@@ -10,7 +10,7 @@ function Calcular(){
     let erroMes = document.getElementById("erroMes")
     let erroAno = document.getElementById("erroAno")
 
-    console.log(dia)
+    // console.log(dia)
 
     // Validação se os dados informados são números
 
@@ -30,9 +30,22 @@ function Calcular(){
     erroMes.innerHTML = ""
     erroAno.innerHTML = ""
 
+    // Validação para verificar se os dias, meses e anos estão preenchidos de forma correta como por exemplo: mês com mais de 59 dias, mês 21, ano de 2930
+
+    
+
     let diaAtual = hoje.getDate()
     let mesAtual = hoje.getMonth() + 1
     let anoAtual = hoje.getFullYear()
+
+    console.log(`Dia Atual ${dia} // Dia informado ${new Date(anoAtual, mesAtual, 0).getDate()}`)
+
+    // Validação para verificar se os dias no mês escolhido está certo
+
+    if (dia > new Date(anoAtual, mesAtual, 0).getDate()) {
+        erroDia.innerHTML = 'Quantidades de dias a mais que o mês'
+        return
+    }
 
     let diaTotal = diaAtual - dia
     let mesTotal = mesAtual - mes
@@ -42,7 +55,6 @@ function Calcular(){
         mesTotal--;
         diaTotal += new Date(anoAtual, mesAtual - 1, 0).getDate()
     }
-    
 
     if (mesTotal < 0) {
         anoTotal--;
