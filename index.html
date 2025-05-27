@@ -10,24 +10,43 @@
 
     <main>
 
-        Dia
-        <input type="number" placeholder="Digite o Dia" id="dia" min="1" max="31">
-        <span id="erroDia" style="color: red;"></span>
+        <div id="entradaDados"">
+            <div class="dadosInseridos">
+                <p>DIA</p>
+                <input type="number" placeholder="Dia" id="dia" min="1" max="31">
+                <span id="erroDia" style="color: red;"></span>
+            </div>
+        
+            <div class="dadosInseridos">
+                <p>MÊS</p>
+                <input type="number" placeholder="Mês" id="mes" min="1" max="12">
+                <span id="erroMes" style="color: red;"></span>
+            </div>
 
-        Mês
-        <input type="number" placeholder="Digite o Mês" id="mes" min="1" max="12">
-        <span id="erroMes" style="color: red;"></span>
+            <div class="dadosInseridos">
+                <p>ANO</p>
+                <input type="number" placeholder="Ano" id="ano">
+                <span id="erroAno" style="color: red;"></span>
+            </div>
+        </div>
+        
+        <div class="container-linha">
+            <hr class="linha">
+            <button class="icone-circular" onclick="Calcular()">
+                <img src="images/icon-arrow.svg" alt="">
+            </button>
+            </div>
 
-        Ano
-        <input type="number" placeholder="Digite o Ano" id="ano">
-        <span id="erroAno" style="color: red;"></span>
-
-        <button onclick="Calcular()">Calcular</button>
-
-        <div style="font-size: 150px;">
-            <label id="diaLabel">--</label> Dias
-            <label id="mesLabel">--</label> Meses
-            <label id="anoLabel">--</label> Anos
+        <div class="resultadoPai">
+            <div class="resultado">
+                <p><label id="diaLabel">--</label> Dias</p>
+            </div>
+            <div class="resultado">
+                <p><label id="mesLabel">--</label> Meses</p>
+            </div>
+            <div class="resultado">
+                <p><label id="anoLabel">--</label> Anos</p>
+            </div>
         </div>
        
     </main>

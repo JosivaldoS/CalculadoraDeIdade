@@ -1,0 +1,192 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url(fonts/Poppins-ExtraBold.ttf);
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url(fonts/Poppins-BoldItalic.ttf);
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: hsl(0, 0%, 86%);
+  height: 100vh;
+  padding: 1rem;
+}
+
+main {
+  width: 90vw;
+  max-width: 600px;
+  height: auto;
+  min-height: 60vh;
+  background-color: white;
+  font-size: clamp(1.5rem, 2.5vw, 3.5rem); /* responsivo */
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 150px;
+  padding: 2rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+#entradaDados {
+  display: flex;
+  justify-content: flex-start;
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(1rem, 2vw, 2rem);
+  gap: 2rem;
+  width: 100%;
+  font-style: italic;
+  flex-wrap: wrap;
+}
+
+.dadosInseridos {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 120px; /* flexível com base mínima */
+  min-width: 120px;
+}
+
+.dadosInseridos > p {
+  color: hsl(0, 1%, 44%);
+  font-size: clamp(0.8rem, 1.5vw, 1.2rem);
+  padding: 0.3rem 0;
+}
+
+.dadosInseridos > input {
+  padding: 0.7rem 1rem;
+  font-size: clamp(1.2rem, 2vw, 2rem);
+  width: 100%;
+  font-family: 'Poppins', sans-serif;
+
+  border: 2px solid hsl(0, 0%, 86%);
+  border-radius: 5px;
+  
+  transition: border-color 0.3s ease;
+  box-sizing: border-box;
+}
+
+.dadosInseridos > input:focus {
+  outline: none;
+  border: 2px solid hsl(259, 100%, 65%);
+}
+
+.dadosInseridos > span {
+  font-size: clamp(1rem, 1.5vw, 1.5rem);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 1.5em; /* reserva espaço e evita pular layout */
+  color: red;
+  margin-top: 0.3rem;
+}
+
+.container-linha {
+  position: relative;
+  width: 100%;
+  height: 30px;
+  margin: 2rem -0.8rem 0 0; /* margens ajustadas para responsividade */
+}
+
+.linha {
+  border: none;
+  border-top: 1px solid #ddd;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  transform: translateY(-50%);
+}
+
+.icone-circular {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #8c4dff;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+}
+
+.icone-circular img {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.icone-circular:hover {
+  background-color: #7a3fee;
+}
+
+.resultadoPai {
+  font-family: 'Poppins', sans-serif;
+}
+
+.resultado {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.resultado label {
+  font-size: clamp(2rem, 4vw, 4.5rem);
+  color: #7a3fee;
+  white-space: nowrap;
+}
+
+/* Media Queries para telas pequenas */
+
+@media (max-width: 600px) {
+  main {
+    width: 95vw;
+    padding: 1rem;
+    border-bottom-right-radius: 60px;
+  }
+
+  #entradaDados {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .dadosInseridos {
+    min-width: 100%;
+  }
+
+  .resultado {
+    justify-content: center;
+  }
+
+  .resultado label {
+    font-size: 3rem;
+  }
+
+  .icone-circular {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .icone-circular img {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+}
