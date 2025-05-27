@@ -15,13 +15,13 @@ function Calcular(){
     // Validação se os dados informados são números
 
     if (isNaN(dia) || !Number.isInteger(dia)) {
-        erroDia.innerText = "O campo precisa ser preenchido"
+        erroDia.innerText = "Insira um número inteiro válido para o dia"
         return
     } else if (isNaN(mes) || !Number.isInteger(mes)){
-        erroMes.innerText = "O campo precisa ser preenchido"
+        erroMes.innerText = "Insira um número inteiro válido para o dia"
         return
     } else if (isNaN(ano) || !Number.isInteger(ano)){
-        erroAno.innerText = "O campo precisa ser preenchido"
+        erroAno.innerText = "Insira um número inteiro válido para o dia"
         return
     }
 
@@ -32,17 +32,28 @@ function Calcular(){
 
     // Validação para verificar se os dias, meses e anos estão preenchidos de forma correta como por exemplo: mês com mais de 59 dias, mês 21, ano de 2930
 
-    
+    if (dia < 1 || dia > 31) {
+        erroDia.innerHTML = 'Dia inserido inválido. Dia deve estar entre 1 e 31.'
+        return
+    } else if (mes < 1 || mes > 12) {
+        erroMes.innerHTML = 'Mês deve estar entre 1 e 12'
+        return
+    } else if (ano >= hoje.getFullYear()) {
+        erroAno.innerHTML = 'Ano não pode ser maior ou igual ao ano atual'
+        return
+    }
 
     let diaAtual = hoje.getDate()
     let mesAtual = hoje.getMonth() + 1
     let anoAtual = hoje.getFullYear()
 
-    console.log(`Dia Atual ${dia} // Dia informado ${new Date(anoAtual, mesAtual, 0).getDate()}`)
+    console.log(`Dias informados ${dia} // Quantos dias o mês possui? ${new Date(anoAtual, mes, 0).getDate()}`)
+    console.log(diaAtual, mes, anoAtual)
+    console.log(new Date(anoAtual, mesAtual, 0).getDate())
 
     // Validação para verificar se os dias no mês escolhido está certo
 
-    if (dia > new Date(anoAtual, mesAtual, 0).getDate()) {
+    if (dia > new Date(ano, mes, 0).getDate()) {
         erroDia.innerHTML = 'Quantidades de dias a mais que o mês'
         return
     }
