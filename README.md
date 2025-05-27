@@ -35,6 +35,12 @@ Um formulário moderno, responsivo e estilizado para entrada de data (dia, mês 
 
 ---
 
+## ✈️ Link para acessar no githubpages
+
+https://josivaldos.github.io/CalculadoraDeIdade/
+
+---
+
 ## 🛠️ Como usar
 
 1. Clone este repositório: git clone https://github.com/seuusuario/seuprojeto.git
